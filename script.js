@@ -74,6 +74,27 @@ async function main() {
     lineNumbers: true,
   });
 
+  const themes = {
+  dark: { "--theme": "dark" },
+  light: { "--theme": "light" }
+};
+
+function setTheme(name) {
+  document.documentElement.setAttribute('data-theme', name);
+  localStorage.setItem('theme', name);
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  const prefers = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
+  setTheme(saved || prefers);
+})();
+
+document.getElementById('theme-toggle').onclick = () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+};
+
   loadLesson(0);
 }
 
