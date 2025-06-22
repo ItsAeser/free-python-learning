@@ -2,6 +2,13 @@ let pyodide = null;
 let currentLesson = 0;
 let editor = null;
 let lessons = [];
+document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    if (loader) loader.style.display = "none";
+  });
+});
+
 
 async function initPyodide() {
   pyodide = await loadPyodide();
