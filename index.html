@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Codedex Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css" />
+</head>
+<body>
+  <div id="container">
+    <aside id="sidebar"></aside>
+    <main id="content">
+      <h1 id="lesson-title">Loading...</h1>
+      <p id="lesson-text"></p>
+
+      <div id="quiz-section"></div>
+
+      <div id="project-section">
+        <h3>Project</h3>
+        <textarea id="editor">// Write your Python code here</textarea>
+        <button onclick="runCode()">Run Code</button>
+        <pre id="output">Output will appear here...</pre>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/python/python.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
