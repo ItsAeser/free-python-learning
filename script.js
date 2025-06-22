@@ -102,4 +102,9 @@ main();
 window.addEventListener("load", () => {
   document.getElementById("loader").style.display = "none";
 });
+document.getElementById("lesson-content").classList.add("fade-in");
+setTimeout(() => {
+  document.getElementById("lesson-content").classList.remove("fade-in");
+}, 500);
+
 
