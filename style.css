@@ -1,45 +1,40 @@
 :root {
-  --bg: #0d1117;
-  --fg: #c9d1d9;
-  --sidebar-bg: #161b22;
-  --sidebar-active: #30363d;
-  --button-bg: #238636;
-  --button-hover: #2ea043;
-  --editor-bg: #161b22;
-  --output-bg: #0d1117;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #fff;
-    --fg: #222;
-    --sidebar-bg: #f5f5f5;
-    --sidebar-active: #ddd;
-    --button-bg: #0366d6;
-    --button-hover: #0356b6;
-    --editor-bg: #fff;
-    --output-bg: #f0f0f0;
-  }
+  --bg: #0b111b;
+  --fg: #c5c8ce;
+  --sidebar-bg: #0e1524;
+  --sidebar-active: #1d2738;
+  --button-bg: #0366d6;
+  --button-hover: #054dab;
+  --editor-bg: #0e1524;
+  --editor-border: #222a35;
+  --output-bg: #0b111b;
 }
 
 body {
+  background: var(--bg);
+  color: var(--fg);
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   height: 100vh;
-  background: var(--bg);
-  color: var(--fg);
 }
 
 #sidebar {
   width: 250px;
   background: var(--sidebar-bg);
   color: var(--fg);
+  padding: 20px;
+  overflow-y: auto;
 }
 
 #sidebar button {
+  width: 100%;
+  margin-bottom: 5px;
   background: var(--sidebar-bg);
+  border: none;
+  padding: 10px;
   color: var(--fg);
+  cursor: pointer;
 }
 
 #sidebar button.active {
@@ -63,12 +58,21 @@ button:hover {
   background: var(--button-hover);
 }
 
+textarea#editor {
+  display: none;
+}
+
 .CodeMirror {
-  background: var(--editor-bg);
-  color: var(--fg);
+  background: var(--editor-bg) !important;
+  border: 1px solid var(--editor-border);
+  color: var(--fg) !important;
+  height: 200px;
 }
 
 #output {
   background: var(--output-bg);
   color: var(--fg);
+  padding: 10px;
+  margin-top: 10px;
+  white-space: pre-wrap;
 }
