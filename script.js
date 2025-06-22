@@ -69,10 +69,10 @@ async function main() {
   createSidebar();
 
   editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-    mode: "python",
-    theme: "default",
-    lineNumbers: true,
-  });
+  mode: "python",
+  theme: "ayu-mirage",
+  lineNumbers: true,
+});
 
   const themes = {
   dark: { "--theme": "dark" },
