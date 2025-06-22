@@ -99,3 +99,7 @@ document.getElementById('theme-toggle').onclick = () => {
 }
 
 main();
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+});
+
