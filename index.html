@@ -13,6 +13,26 @@
     justify-content: center;
     font-size: 2em;
     z-index: 9999;
+    transition: opacity 0.3s ease;
+  }
+  #loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+  <style>
+  #loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: #0b111b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    z-index: 9999;
   }
 </style>
 
