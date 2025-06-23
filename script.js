@@ -1,3 +1,7 @@
+let currentLesson = 0;
+let editor;
+let pyodide;
+
 const lessons = [
   {
     description: "Lesson 1: Intro to print()",
@@ -125,3 +129,53 @@ const lessons = [
     project: "name = input('Your name: ')\nprint('Good job,', name + '!')"
   }
 ];
+
+async function loadPy() {
+  pyodide = await loadPyodide();
+}
+loadPy();
+
+function renderLesson() {
+  const lesson = lessons[currentLesson];
+  document.getElementById("lesson-description").innerText = lesson.description;
+  document.getElementById("lesson-example").innerText = lesson.example;
+  document.getElementById("lesson-project").innerText = lesson.project;
+  editor.setValue(lesson.project);
+  document.getElementById("output").innerText = "";
+}
+
+function runCode() {
+  const code = editor.getValue();
+  pyodide.runPythonAsync(code).then(output => {
+    document.getElementById("output").innerText = output ?? "No output";
+  }).catch(err => {
+    document.getElementById("output").innerText = err;
+  });
+}
+
+function prevLesson() {
+  if (currentLesson > 0) {
+    currentLesson--;
+    renderLesson();
+  }
+}
+
+function nextLesson() {
+  if (currentLesson < lessons.length - 1) {
+    currentLesson++;
+    renderLesson();
+  }
+}
+
+function checkAnswer() {
+  alert("✅ Answer checked! Customize this later to evaluate output.");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+    mode: "python",
+    theme: "ayu-mirage",
+    lineNumbers: true,
+  });
+  renderLesson();
+});
