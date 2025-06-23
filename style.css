@@ -1,126 +1,51 @@
-:root {
-  --bg: #0b111b;
-  --fg: #c5c8ce;
-  --sidebar-bg: #0e1524;
-  --sidebar-active: #1d2738;
-  --button-bg: #0366d6;
-  --button-hover: #054dab;
-  --editor-bg: #0e1524;
-  --editor-border: #222a35;
-  --output-bg: #0b111b;
-}
-
 body {
-  background: var(--bg);
-  color: var(--fg);
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  background: #000;
+  color: white;
+  font-family: sans-serif;
+}
+
+#layout {
   display: flex;
-  height: 100vh;
-}
-
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: var(--bg);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2em;
-  z-index: 9999;
-  transition: opacity 0.3s ease;
-}
-
-#loader.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-#sidebar {
-  width: 250px;
-  background: var(--sidebar-bg);
-  color: var(--fg);
   padding: 20px;
-  overflow-y: auto;
+  gap: 20px;
 }
 
-#sidebar button {
-  width: 100%;
-  margin-bottom: 5px;
-  background: var(--sidebar-bg);
-  border: none;
-  padding: 10px;
-  color: var(--fg);
-  cursor: pointer;
+#lesson-panel {
+  flex: 2;
 }
 
-#sidebar button.active {
-  background: var(--sidebar-active);
-}
-
-#content {
+#code-panel {
   flex: 1;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blue-box {
+  background-color: #009be5;
+  padding: 15px;
+  border: 1px solid #000;
+}
+
+.purple-box {
+  background-color: #9b4dad;
+  padding: 15px;
+  border: 1px solid #000;
 }
 
 button {
-  background: var(--button-bg);
-  color: #fff;
-  border: none;
   padding: 10px;
+  background: white;
+  border: none;
+  color: black;
+  font-weight: bold;
   cursor: pointer;
-}
-
-button:hover {
-  background: var(--button-hover);
-}
-
-textarea#editor {
-  display: none;
 }
 
 .CodeMirror {
-  background: var(--editor-bg) !important;
-  border: 1px solid var(--editor-border);
-  color: var(--fg) !important;
   height: 200px;
-}
-
-#output {
-  background: var(--output-bg);
-  color: var(--fg);
-  padding: 10px;
-  margin-top: 10px;
-  white-space: pre-wrap;
-}
-
-/* Quiz XP badge buttons */
-.quiz-option {
-  background: #1f6feb;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  margin: 8px 0;
-  border-radius: 50px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
-  display: inline-block;
-}
-
-.quiz-option:hover {
-  background: #388bfd;
-  transform: scale(1.03);
-}
-
-.quiz-option.correct {
-  background: #238636;
-}
-
-.quiz-option.wrong {
-  background: #da3633;
+  border: 1px solid #222;
+  background: #009be5 !important;
+  color: black !important;
 }
